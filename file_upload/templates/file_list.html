@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title> <h5>File List </h5> </title>
+        
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Files in Folder</h1>
+     <p><cite>*</cite> Click on File to Download</p>
+    <ul>
+        {% for file in files %}
+            <li><a href="/media/{{ folder_name }}/{{ file }}" download>{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
