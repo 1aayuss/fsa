@@ -25,15 +25,12 @@ RUN apk del .build-deps
 # Copy project files into the container
 COPY . .
 
-# Create STATIC_ROOT directory and collect static files
 RUN mkdir -p /app/staticfiles && \
     python manage.py collectstatic --noinput
 
-# Debugging: Check static files and directory contents
 RUN ls -la /app/staticfiles
 
 # Expose application port
 EXPOSE 8010
 
-# Run the application
 CMD ["gunicorn", "--bind", "0.0.0.0:8010", "file_sharing.wsgi:application"]
